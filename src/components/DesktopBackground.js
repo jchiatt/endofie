@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from "styled-components";
 
+function getRandomColor() {
+  return '#' + Math.random().toString(16).substring(2, 8);
+}
+
 const Background = styled.div`
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: #55aaaa;
+  background-color: ${getRandomColor()};
   background-image: url('/logo.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -19,6 +23,7 @@ const Background = styled.div`
     font-weight: bold;
     color: #fff;
     text-align: center;
+    background-color: #111;
   }
 `
 
