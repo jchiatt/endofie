@@ -1,0 +1,30 @@
+@keyframes spin {
+    from{
+        transform: rotateY(0deg);
+        moz-transform: rotateY(0deg);
+        ms-transform: rotateY(0deg); 
+    }
+    to{
+        transform: rotateY(360deg);
+        moz-transform: rotateY(360deg); 
+        ms-transform: rotateY(360deg); 
+    }
+}
+@-webkit-keyframes spin{
+    from{-webkit-transform: rotateY(0deg);}
+    to{-webkit-transform: rotateY(360deg);}
+}
+.spin-img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20rem;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    -webkit-animation-name: spin;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 5s;
+}

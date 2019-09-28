@@ -2,6 +2,7 @@ import React from "react";
 import StandardLayout from '../layouts/StandardLayout';
 import { Button, Icon, Modal, ProgressBar } from '@react95/core';
 import VisitorCounter from '../components/VisitorCounter';
+import SpinningLogo from '../components/SpinningLogo';
 
 const startDate = new Date(2019,9,19); // October 19, 2019
 const endDate = new Date(2025,9,14); // October 14, 2025
@@ -22,5 +23,6 @@ export default () => (
     <Icon height={48} name="mute" width={48} />
     <Icon height={48} name="unmute" width={48} />
     <Modal defaultPosition={{ x: 200, y: 200 }}>test</Modal>
+    <SpinningLogo />
   </StandardLayout>
 )
