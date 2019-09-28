@@ -13,6 +13,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@react95/core": "^2.4.4",
     "gatsby": "^2.15.28",
     "react": "^16.10.0",
     "react-dom": "^16.10.0"
