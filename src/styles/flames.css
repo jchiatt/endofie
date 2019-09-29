@@ -1,0 +1,15 @@
+.flames {
+    position: absolute;
+    top: 0;
+    right: 2vw;
+    transform: rotate(30deg);
+    height: 30vh;
+}
+
+.flames:last-of-type {
+    position: absolute;
+    top: 0;
+    right: 10vw;
+    transform: rotate(-30deg);
+    height: 30vh;
+}

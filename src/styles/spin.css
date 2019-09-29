@@ -22,9 +22,9 @@
     animation-name: spin;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-duration: 5s;
+    animation-duration: 3s;
     -webkit-animation-name: spin;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 3s;
 }
