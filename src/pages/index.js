@@ -4,8 +4,6 @@ import { Button, Icon, Modal } from '@react95/core';
 import SpinningLogo from '../components/SpinningLogo';
 import Flames from '../components/Flames';
 import ScreenSaver from '../components/ScreenSaver';
-import ProgressBar from '../components/ProgressBar';
-import Countdown from '../components/Countdown';
 
 export default () => {
 
@@ -13,10 +11,8 @@ export default () => {
     <>
       <ScreenSaver />
       <StandardLayout>
-        <ProgressBar />
         <SpinningLogo />
         <Flames />
-        <Countdown />
       </StandardLayout>
     </>
   )
