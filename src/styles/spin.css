@@ -19,10 +19,6 @@
   }
 }
 .spin-img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20rem;
   animation-name: spin;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -31,10 +27,4 @@
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 3s;
-}
-
-@media screen and (max-width: 1000px) {
-  .spin-img {
-    width: 5rem;
-  }
 }
