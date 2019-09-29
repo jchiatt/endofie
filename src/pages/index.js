@@ -17,7 +17,7 @@ export default () => {
 
   return (
     <>
-        <ScreenSaver />
+        {/* <ScreenSaver /> */}
         <StandardLayout>
           <VisitorCounter />
           <Button>Click me!</Button>
@@ -31,7 +31,6 @@ export default () => {
           <SpinningLogo />
           <Flames />
         </StandardLayout>
-      )}
     </>
   )
 }

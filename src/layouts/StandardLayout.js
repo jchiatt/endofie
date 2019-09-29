@@ -1,7 +1,12 @@
 import React from 'react';
 import '../styles/vendor/normalize.css';
 import DesktopBackground from "../components/DesktopBackground";
+import TaskBar from '../components/TaskBar';
 
 export default function StandardLayout({ children }) {
-  return <DesktopBackground>{children}</DesktopBackground>
+  return (
+    <DesktopBackground>
+      {children}
+      <TaskBar />
+    </DesktopBackground>)
 }

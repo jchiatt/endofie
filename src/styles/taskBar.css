@@ -1,0 +1,37 @@
+[name="logo"] {
+    display: inline-block;
+    margin: -.2rem 0;
+}
+
+.taskbar {
+    background-color: #c3c7cb;
+    height: 2rem;
+    width: 100vw;
+    padding-top: .3rem;
+    -moz-box-shadow:    inset 0 0 7px #fff;
+    -webkit-box-shadow: inset 0 0 7px #fff;
+    box-shadow:         inset 0 0 7px #fff;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 20fr 1fr;
+    padding-bottom: .5rem;
+}
+
+.taskbar-btn, .taskbar-btn:active {
+    padding: .5rem;
+    padding-bottom: .25rem;
+    /* padding-bottom: .2rem; */
+    margin-left: .5rem;
+}
+
+.countdown {
+    border: 1px solid #ccc;
+    padding: 6px 4px 0 4px;
+    -moz-box-shadow:    inset 0 1px 1px 1px #555;
+    -webkit-box-shadow: inset 0 1px 1px 1px #555;
+    box-shadow:         inset 0 1px 1px 1px #555;
+    display: inline-block;
+    grid-column-start: 21;
+    margin-right: .5rem;
+}
