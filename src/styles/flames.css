@@ -4,6 +4,7 @@
     right: 2vw;
     transform: rotate(30deg);
     height: 30vh;
+    display: none;
 }
 
 .flames:last-of-type {
