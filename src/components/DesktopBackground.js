@@ -7,15 +7,21 @@ function getRandomColor() {
 }
 
 const Background = styled.div`
+  overflow: hidden;
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: ${props => props.color ? props.color : getRandomColor()};
-  background-image: url('/logo.png');
+  background-color: ${props => (props.color ? props.color : getRandomColor())};
+  background-image: url("/logo.png");
   background-repeat: no-repeat;
   background-position: center;
+
+  @media screen and (max-width: 1000px) {
+    background-size: 50%;
+  }
+
   &:after {
-    content: 'WELCOME TO THE END OF IE PARTY';
+    content: "WELCOME TO THE END OF IE PARTY";
     position: absolute;
     top: calc(50% + 300px);
     left: 50%;
@@ -27,16 +33,23 @@ const Background = styled.div`
     color: #fff;
     text-align: center;
     background-color: #111;
+
+    @media screen and (max-width: 1000px) {
+      top: calc(50% + 150px);
+      width: 50%;
+      padding: 1rem;
+      font-size: 1rem;
+    }
   }
-`;
+`
 
 const Footer = styled.footer`
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 2rem);
   padding: 1rem;
   text-align: center;
-`;
+`
 
 export default function DesktopBackground({ children }) {
   const [color, setColor] = React.useState(getRandomColor());
