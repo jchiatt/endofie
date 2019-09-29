@@ -20,7 +20,7 @@
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "styled-components": "^4.4.0",
-    "yarn": "^1.19.0"
+    "web-audio-beat-detector": "^7.0.64"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
