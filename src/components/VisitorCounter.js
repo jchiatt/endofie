@@ -28,5 +28,5 @@ export default function VisitorCounter() {
     incrementCount();
   }, []);
 
-  return <p>You may have visited this page {count} times. Or not.</p>
+  return <p style={{ margin: 0 }}>You may have visited this page {count}ish times. Or not.</p>
 }
