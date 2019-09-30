@@ -28,3 +28,10 @@
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 3s;
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+    .spin-img {
+      animation: none;
+    }
+  }
