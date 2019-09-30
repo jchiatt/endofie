@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import { PartyContext } from '../contexts/PartyContext';
 import VisitorCounter from './VisitorCounter';
 import SpinningLogo from './SpinningLogo';
 
@@ -66,26 +67,32 @@ const Footer = styled.footer`
 export default function DesktopBackground({ children }) {
   const [color, setColor] = React.useState(getRandomColor());
   
-  React.useEffect(() => {
-    let interval = setInterval(() => {
-      setColor(getRandomColor());
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [color]);
+  // React.useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     setColor(getRandomColor());
+  //   }, 1000);
+  //   return () => clearInterval(interval);
+  // }, [color]);
 
 
   return (
-    <Background color={color}>
-      <Inner>
-        <LogoContainer>
-          <SpinningLogo />
-          <Title>Welcome to the End of IE Party</Title>
-        </LogoContainer>
-      </Inner>
-      {children}
-      <Footer>
-        <VisitorCounter />
-      </Footer>
-    </Background>
+    <PartyContext.Provider value={{ 
+      changeBackgroundColor: () => {
+        setColor(getRandomColor());
+      } 
+    }}>
+      <Background color={color}>
+        <Inner>
+          <LogoContainer>
+            <SpinningLogo />
+            <Title>Welcome to the End of IE Party</Title>
+          </LogoContainer>
+        </Inner>
+        {children}
+        <Footer>
+          <VisitorCounter />
+        </Footer>
+      </Background>
+    </PartyContext.Provider>
   )
 }
