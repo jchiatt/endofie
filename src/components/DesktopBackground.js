@@ -60,6 +60,7 @@ const Footer = styled.footer`
   width: calc(100% - 2rem);
   padding: 1rem;
   text-align: center;
+  background-color: rgba(255,255,255,.5);
 `
 
 export default function DesktopBackground({ children }) {
