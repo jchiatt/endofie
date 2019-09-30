@@ -56,7 +56,7 @@ const Title = styled.h1`
 
 const Footer = styled.footer`
   position: absolute;
-  bottom: 0;
+  bottom: 3rem;
   width: calc(100% - 2rem);
   padding: 1rem;
   text-align: center;

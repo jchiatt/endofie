@@ -22,6 +22,7 @@
     padding: .5rem;
     padding-bottom: .25rem;
     margin-left: .5rem;
+    min-width: 4rem;
 }
 
 .countdown {
