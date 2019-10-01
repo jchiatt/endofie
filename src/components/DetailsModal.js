@@ -5,7 +5,7 @@ import '../styles/detailsModal.css';
 
 export default function DetailsModal() {
     return (
-        <Modal title="WHERE THE PARTY AT">
+        <Modal title="WHERE THE PARTY AT" id="deetsModal">
             <h3>The deets</h3>
             <ul>
                 <li><strong>Where:</strong> We don't know yet.</li>

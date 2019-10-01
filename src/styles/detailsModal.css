@@ -2,7 +2,7 @@ h3 {
     margin-bottom: 0;
 }
 
-.react-draggable {
-    top: 6rem;
-    left: 2rem;
+#deetsModal {
+    top: 25vh;
+    left: 10vw;
 }
