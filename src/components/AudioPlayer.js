@@ -40,7 +40,7 @@ async function getTempo() {
 
 export default function AudioPlayer() {
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const [tempo, setTempo] = React.useState(null);
+  const [_, setTempo] = React.useState(null);
   const [beatsPerSecondInMilliseconds, setBeatsPerSecondInMilliseconds] = React.useState(null);
   const { changeBackgroundColor } = React.useContext(PartyContext)
 
@@ -65,7 +65,6 @@ export default function AudioPlayer() {
 
   React.useEffect(() => {
     let interval = null;
-    console.log('bps', beatsPerSecondInMilliseconds)
 
     if (isPlaying) {
       interval = setInterval(() => {
@@ -78,7 +77,7 @@ export default function AudioPlayer() {
 
   return (
     <PlayerWrapper>
-      <audio id="player" loop>
+      <audio id="player" loop preload="auto">
         <source src="/microwave-robocop.wav" type="audio/wav" />
       </audio>
       <Button onClick={handleClick} >{isPlaying ? "Pause" : "Play"}</Button>
