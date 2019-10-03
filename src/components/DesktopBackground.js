@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
 import { PartyContext } from '../contexts/PartyContext';
+import useParty from '../hooks/useParty';
 import VisitorCounter from './VisitorCounter';
 import SpinningLogo from './SpinningLogo';
-
-function getRandomColor() {
-  return '#' + Math.random().toString(16).substring(2, 8);
-}
+import getRandomColor from '../util/getRandomColor'
 
 const Inner = styled.div`
   display: flex;
@@ -65,21 +63,12 @@ const Footer = styled.footer`
 `
 
 export default function DesktopBackground({ children }) {
-  const [color, setColor] = React.useState(getRandomColor());
-  
-  // React.useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     setColor(getRandomColor());
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, [color]);
-
+  const {color, isPlaying, togglePartyTime} = useParty();
 
   return (
     <PartyContext.Provider value={{ 
-      changeBackgroundColor: () => {
-        setColor(getRandomColor());
-      } 
+      togglePartyTime: () => { togglePartyTime() },
+      isPlaying
     }}>
       <Background color={color}>
         <Inner>

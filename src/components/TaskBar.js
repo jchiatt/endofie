@@ -13,7 +13,7 @@ export default function TaskBar() {
         {navIsActive && <Navigation />}
         <div className="taskbar">
           <Button className="taskbar-btn" onClick={toggleNav}>
-            <Icon height={16} name="logo" width={16} /> Start
+            <Icon height={16} name="logo" width={16} /> {navIsActive ? 'Close' : 'Start'}
           </Button>
           <div className="countdown">
             {years} years, {days} days, {hours}:{minutes}:{seconds}

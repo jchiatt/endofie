@@ -1,6 +1,7 @@
 import React from 'react';
 import { List } from '@react95/core';
 import styled from 'styled-components'
+import { PartyContext } from "../contexts/PartyContext"
 
 const NavContainer = styled.nav`
   z-index: 2;
@@ -28,6 +29,8 @@ export function useNav() {
 }
 
 export default function Navigation() {
+  const { togglePartyTime, isPlaying } = React.useContext(PartyContext)
+  
   return (
     <NavContainer>
       <List>
@@ -44,10 +47,20 @@ export default function Navigation() {
           <List.Item icon="recycle_full">Twitter</List.Item>
         </StyledLink>
         <List.Divider />
-        <List.Item icon="mic">Party Now</List.Item>
-        <List.Item icon="warning">Do NOT Click</List.Item>
+        <List.Item
+          icon="mic"
+          onClick={togglePartyTime}
+          style={{ cursor: "pointer" }}
+        >
+          {isPlaying ? "Stop the Party :-(" : "Party Now"}
+        </List.Item>
+        <List.Item icon="warning" style={{ cursor: "pointer" }}>
+          Do NOT Click
+        </List.Item>
         <List.Divider />
-        <List.Item icon="computer_3">Shut Down...</List.Item>
+        <List.Item icon="computer_3" style={{ cursor: "pointer" }}>
+          Shut Down...
+        </List.Item>
       </List>
     </NavContainer>
   )
