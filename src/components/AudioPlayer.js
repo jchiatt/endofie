@@ -35,8 +35,6 @@ async function getTempo() {
 
   const tempo = Math.ceil(await analyze(audioBuffer))
 
-  console.log(tempo)
-
   return tempo
 }
 
