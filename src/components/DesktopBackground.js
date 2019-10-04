@@ -66,10 +66,14 @@ export default function DesktopBackground({ children }) {
   const {color, isPlaying, togglePartyTime} = useParty();
 
   return (
-    <PartyContext.Provider value={{ 
-      togglePartyTime: () => { togglePartyTime() },
-      isPlaying
-    }}>
+    <PartyContext.Provider
+      value={{
+        togglePartyTime: () => {
+          togglePartyTime()
+        },
+        isPlaying,
+      }}
+    >
       <Background color={color}>
         <Inner>
           <LogoContainer>
@@ -80,6 +84,13 @@ export default function DesktopBackground({ children }) {
         {children}
         <Footer>
           <VisitorCounter />
+          <p>
+            Made with <span role="img">❤️</span> in Mississippi by{" "}
+            <a href="https://twitter.com/jchiatt" target="_blank">
+              J.C. Hiatt
+            </a>{" "}
+            & <a href="https://dev.to/kaylasween">Kayla Sween</a>.
+          </p>
         </Footer>
       </Background>
     </PartyContext.Provider>
