@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
 import { PartyContext } from '../contexts/PartyContext';
+import useParty from '../hooks/useParty';
 import VisitorCounter from './VisitorCounter';
 import SpinningLogo from './SpinningLogo';
-
-function getRandomColor() {
-  return '#' + Math.random().toString(16).substring(2, 8);
-}
+import Paint from './Paint';
+import getRandomColor from '../util/getRandomColor'
 
 const Inner = styled.div`
   display: flex;
@@ -65,22 +64,17 @@ const Footer = styled.footer`
 `
 
 export default function DesktopBackground({ children }) {
-  const [color, setColor] = React.useState(getRandomColor());
-  
-  // React.useEffect(() => {
-  //   let interval = setInterval(() => {
-  //     setColor(getRandomColor());
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, [color]);
-
+  const {color, isPlaying, partyTime, togglePartyTime} = useParty();
 
   return (
-    <PartyContext.Provider value={{ 
-      changeBackgroundColor: () => {
-        setColor(getRandomColor());
-      } 
-    }}>
+    <PartyContext.Provider
+      value={{
+        togglePartyTime: () => {
+          togglePartyTime()
+        },
+        isPlaying,
+      }}
+    >
       <Background color={color}>
         <Inner>
           <LogoContainer>
@@ -88,9 +82,18 @@ export default function DesktopBackground({ children }) {
             <Title>Welcome to the End of IE Party</Title>
           </LogoContainer>
         </Inner>
+        {partyTime && <Paint />}
+        {/* <Paint /> */}
         {children}
         <Footer>
           <VisitorCounter />
+          <p>
+            Made with <span role="img">❤️</span> in Mississippi by{" "}
+            <a href="https://twitter.com/jchiatt" target="_blank">
+              J.C. Hiatt
+            </a>{" "}
+            & <a href="https://dev.to/kaylasween">Kayla Sween</a>.
+          </p>
         </Footer>
       </Background>
     </PartyContext.Provider>

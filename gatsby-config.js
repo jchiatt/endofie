@@ -9,6 +9,17 @@ module.exports = {
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {},
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Montserrat`,
+            variants: [`400`, `700`],
+          },
+        ],
+      },
     }
   ]
 }

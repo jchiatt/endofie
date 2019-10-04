@@ -37,7 +37,10 @@ export default function DetailsModal() {
           </li>
           <li>
             <strong>Cost:</strong> FREE (
-            <a href="mailto:jc+endofie@jchiatt.com">if we have sponsors</a>)
+            <a href="mailto:jc+endofie@jchiatt.com?subject=Sponsoring End of IE Party&body=I want to sponsor the End of IE party because I'm awesome.">
+              if we have sponsors
+            </a>
+            )
           </li>
         </ul>
       </StyledModal>
