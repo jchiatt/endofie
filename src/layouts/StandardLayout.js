@@ -9,5 +9,6 @@ export default function StandardLayout({ children }) {
     <DesktopBackground>
       {children}
       <TaskBar />
-    </DesktopBackground>)
+    </DesktopBackground>
+  )
 }

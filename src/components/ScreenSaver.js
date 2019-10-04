@@ -42,7 +42,7 @@ export default function ScreenSaver() {
   }, [screenSaverActive]);
 
   React.useEffect(() => {
-    const TIMEOUT_DURATION = 10000;
+    const TIMEOUT_DURATION = 60000;
     const events = [
       "mousedown",
       "mousemove",
