@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import { Button } from '@react95/core';
 import { PartyContext } from '../contexts/PartyContext';
 import useParty from '../hooks/useParty';
 import VisitorCounter from './VisitorCounter';
@@ -17,6 +18,9 @@ const LogoContainer = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transform: translate(-50%, -50%);
   img {
     display: block;
@@ -52,6 +56,16 @@ const Title = styled.h1`
   @media screen and (min-width: 1000px) {
     font-size: 4rem;
   }
+`;
+
+const CTAButton = styled(Button)`
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: hotpink;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
 `
 
 const Footer = styled.footer`
@@ -80,10 +94,12 @@ export default function DesktopBackground({ children }) {
           <LogoContainer>
             <SpinningLogo />
             <Title>Welcome to the End of IE Party</Title>
+            <a href="https://mailchi.mp/77f84180ff5c/endofie" target="_blank">
+              <CTAButton>Get email updates</CTAButton>
+            </a>
           </LogoContainer>
         </Inner>
         {partyTime && <Paint />}
-        {/* <Paint /> */}
         {children}
         <Footer>
           <VisitorCounter />
