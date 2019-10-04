@@ -4,6 +4,7 @@ import { PartyContext } from '../contexts/PartyContext';
 import useParty from '../hooks/useParty';
 import VisitorCounter from './VisitorCounter';
 import SpinningLogo from './SpinningLogo';
+import Paint from './Paint';
 import getRandomColor from '../util/getRandomColor'
 
 const Inner = styled.div`
@@ -63,7 +64,7 @@ const Footer = styled.footer`
 `
 
 export default function DesktopBackground({ children }) {
-  const {color, isPlaying, togglePartyTime} = useParty();
+  const {color, isPlaying, partyTime, togglePartyTime} = useParty();
 
   return (
     <PartyContext.Provider
@@ -81,6 +82,8 @@ export default function DesktopBackground({ children }) {
             <Title>Welcome to the End of IE Party</Title>
           </LogoContainer>
         </Inner>
+        {partyTime && <Paint />}
+        {/* <Paint /> */}
         {children}
         <Footer>
           <VisitorCounter />
