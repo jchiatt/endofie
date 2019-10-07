@@ -1,13 +1,13 @@
 [name="logo"] {
-    display: inline-block;
-    margin: -.2rem 0;
+    margin-right: 0.5rem;
+    align-self: center;
 }
 
 .taskbar {
     background-color: #c3c7cb;
     height: 2rem;
     width: 100vw;
-    padding-top: .3rem;
+    padding-top: 0.3rem;
     -moz-box-shadow:    inset 0 0 7px #fff;
     -webkit-box-shadow: inset 0 0 7px #fff;
     box-shadow:         inset 0 0 7px #fff;
@@ -15,14 +15,19 @@
     bottom: 0;
     display: grid;
     grid-template-columns: 1fr 20fr 1fr;
-    padding-bottom: .5rem;
+    padding-bottom: 0.5rem;
 }
 
 .taskbar-btn, .taskbar-btn:active {
-    padding: .5rem;
-    padding-bottom: .25rem;
-    margin-left: .5rem;
-    min-width: 4rem;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    min-width: 4.5rem;
+    max-width: auto;
+    display: flex;
+}
+
+.taskbar-btn span {
+    align-self: center;
 }
 
 .countdown {
@@ -33,5 +38,5 @@
     box-shadow:         inset 0 1px 1px 1px #555;
     display: inline-block;
     grid-column-start: 21;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }

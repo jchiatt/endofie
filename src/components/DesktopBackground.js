@@ -108,7 +108,7 @@ export default function DesktopBackground({ children }) {
             <a href="https://twitter.com/jchiatt" target="_blank">
               J.C. Hiatt
             </a>{" "}
-            & <a href="https://dev.to/kaylasween">Kayla Sween</a>.
+            & <a href="https://twitter.com/_kaylasween">Kayla Sween</a>.
           </p>
         </Footer>
       </Background>
