@@ -18,8 +18,8 @@ export default function usePaint(canvasRef, activeColor) {
     }
 
     const canvas = canvasRef.current
-    const x = e.pageX - canvas.offsetLeft
-    const y = e.pageY - canvas.offsetTop
+    const x = e.layerX - canvas.offsetLeft
+    const y = e.layerY - canvas.offsetTop
 
     return { x, y }
   }
