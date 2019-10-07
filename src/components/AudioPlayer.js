@@ -24,6 +24,8 @@ const Button = styled.button`
   color: white;
   min-width: 14rem;
 
+  margin-right: 2rem;
+
   span {
     vertical-align: middle;
     font-size: 1rem;
