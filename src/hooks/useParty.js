@@ -49,6 +49,7 @@ export default function useParty() {
 
   // set random background color and change on beat
   React.useEffect(() => {
+    if (!beatsPerSecondInMilliseconds) return;
     let interval = null
 
     if (partyTime) {
@@ -58,7 +59,7 @@ export default function useParty() {
     }
 
     return () => clearInterval(interval)
-  }, [partyTime])
+  }, [partyTime, beatsPerSecondInMilliseconds])
 
   return {color, partyTime, isPlaying, togglePartyTime}
 }
