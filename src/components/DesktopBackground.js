@@ -108,11 +108,23 @@ export default function DesktopBackground({ children }) {
         <Footer>
           <VisitorCounter />
           <p>
-            Made with <span role="img" aria-label="love">❤️</span> in Mississippi by{" "}
-            <a href="https://twitter.com/jchiatt" target="_blank" rel="noopener noreferrer">
+            Made with{" "}
+            <span role="img" aria-label="love">
+              ❤️
+            </span>{" "}
+            in Mississippi by{" "}
+            <a
+              href="https://twitter.com/jchiatt"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               J.C. Hiatt
             </a>{" "}
             & <a href="https://twitter.com/_kaylasween">Kayla Sween</a>.
+          </p>
+          <p>
+            This site currently works <strike>best</strike> in Chrome on
+            desktop.
           </p>
         </Footer>
       </Background>
