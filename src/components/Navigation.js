@@ -34,19 +34,6 @@ export default function Navigation() {
   return (
     <NavContainer>
       <List>
-        <StyledLink
-          href="https://github.com/jchiatt/endofie/issues"
-          target="_blank"
-        >
-          <List.Item icon="user">Suggest</List.Item>
-        </StyledLink>
-        <StyledLink href="mailto:jc+endofie@jchiatt.com">
-          <List.Item icon="star">Sponsor</List.Item>
-        </StyledLink>
-        <StyledLink href="https://twitter.com/endofie">
-          <List.Item icon="recycle_full">Twitter</List.Item>
-        </StyledLink>
-        <List.Divider />
         <List.Item
           icon="mic"
           onClick={togglePartyTime}
@@ -54,13 +41,20 @@ export default function Navigation() {
         >
           {isPlaying ? "Stop the Party :-(" : "Party Now"}
         </List.Item>
-        <List.Item icon="warning" style={{ cursor: "pointer" }}>
-          Do NOT Click
-        </List.Item>
         <List.Divider />
-        <List.Item icon="computer_3" style={{ cursor: "pointer" }}>
-          Shut Down...
-        </List.Item>
+        <StyledLink
+          href="https://github.com/jchiatt/endofie/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <List.Item icon="user">Contribute</List.Item>
+        </StyledLink>
+        <StyledLink href="mailto:jc+endofie@jchiatt.com">
+          <List.Item icon="star">Sponsor</List.Item>
+        </StyledLink>
+        <StyledLink href="https://twitter.com/endofie">
+          <List.Item icon="recycle_full">Twitter</List.Item>
+        </StyledLink>
       </List>
     </NavContainer>
   )
