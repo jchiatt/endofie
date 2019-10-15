@@ -104,7 +104,13 @@ export default function usePaint(canvasRef, activeColor) {
       canvas.removeEventListener("mouseup", exitPaint)
       canvas.removeEventListener("mouseleave", exitPaint)
     }
-  }, [exitPaint, canvasRef])
+  }, [exitPaint, canvasRef]);
 
-  return [canvasRef]
+  function clearCanvas() {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  return [clearCanvas];
 }

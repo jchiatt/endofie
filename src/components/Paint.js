@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Modal } from '@react95/core';
+import { Button as R95Button, Modal } from '@react95/core';
 import usePaint from '../hooks/usePaint';
 import getRandomColor from '../util/getRandomColor';
 
@@ -43,7 +43,14 @@ const Color = styled.li`
         : props.color
     }};
   }
-`
+`;
+
+const Button = styled(R95Button)`
+  z-index: 5;
+  position: absolute;
+  right: 1rem;
+  width: 80px;
+`;
 
 const COLORS = ["red", "blue", "green", "purple", "gold", "black"];
 
@@ -51,21 +58,31 @@ export default function Paint() {
   const canvasRef = React.useRef(null);
   const randomColor = getRandomColor();
   const [activeColor, setActiveColor] = React.useState("red")
-  usePaint(canvasRef, activeColor);
+  const [clearCanvas] = usePaint(canvasRef, activeColor);
 
   return (
     <StyledModal title="Paint.exe" icon="brush">
+      <Button onClick={clearCanvas}>Reset</Button>
       <canvas ref={canvasRef} width="500" height="500" />
       <div>
         <ColorPicker>
           {COLORS.map(color => (
-            <Color key={color} color={color} activeColor={activeColor} onClick={() => {
-              setActiveColor(color)
-            }} />
+            <Color
+              key={color}
+              color={color}
+              activeColor={activeColor}
+              onClick={() => {
+                setActiveColor(color)
+              }}
+            />
           ))}
-          <Color color="random" activeColor={activeColor} onClick={() => {
-            setActiveColor(randomColor)
-          }} />
+          <Color
+            color="random"
+            activeColor={activeColor}
+            onClick={() => {
+              setActiveColor(randomColor)
+            }}
+          />
         </ColorPicker>
       </div>
     </StyledModal>
