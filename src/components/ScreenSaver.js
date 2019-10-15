@@ -81,6 +81,7 @@ export default function ScreenSaver() {
   
   return (
     <ScreenSaverContainer aria-hidden="true">
+      {/* eslint-disable-next-line */}
       <marquee
         direction="down"
         behavior="alternate"
@@ -88,6 +89,7 @@ export default function ScreenSaver() {
         width="100%"
         scrollamount="10"
       >
+        {/* eslint-disable-next-line */}
         <marquee behavior="alternate" scrollamount="10">
           <Logo />
         </marquee>

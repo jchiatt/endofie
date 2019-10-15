@@ -4,15 +4,7 @@ export default function usePaint(canvasRef, activeColor) {
   const [isPainting, setIsPainting] = React.useState(false)
   const [mousePosition, setMousePosition] = React.useState({})
 
-  const startPaint = React.useCallback(e => {
-    const coordinates = getCoordinates(e)
-    if (coordinates) {
-      setIsPainting(true)
-      setMousePosition(coordinates)
-    }
-  }, []);
-
-  function getCoordinates(e) {
+  const getCoordinates = React.useCallback(e => {
     if (!canvasRef.current) {
       return
     }
@@ -22,7 +14,39 @@ export default function usePaint(canvasRef, activeColor) {
     const y = e.layerY - canvas.offsetTop
 
     return { x, y }
-  }
+  }, [canvasRef]);
+
+  const startPaint = React.useCallback(e => {
+    const coordinates = getCoordinates(e)
+    if (coordinates) {
+      setIsPainting(true)
+      setMousePosition(coordinates)
+    }
+  }, [getCoordinates]);
+
+  const drawLine = React.useCallback(
+    (originalMousePosition, newMousePosition) => {
+      if (!canvasRef.current) {
+        return
+      }
+
+      const canvas = canvasRef.current
+      const context = canvas.getContext("2d")
+      if (context) {
+        context.strokeStyle = activeColor
+        context.lineJoin = "round"
+        context.lineWidth = 5
+
+        context.beginPath()
+        context.moveTo(originalMousePosition.x, originalMousePosition.y)
+        context.lineTo(newMousePosition.x, newMousePosition.y)
+        context.closePath()
+
+        context.stroke()
+      }
+    },
+    [canvasRef, activeColor]
+  );
 
   const paint = React.useCallback(
     e => {
@@ -34,29 +58,8 @@ export default function usePaint(canvasRef, activeColor) {
         }
       }
     },
-    [isPainting, mousePosition]
-  )
-
-  function drawLine(originalMousePosition, newMousePosition) {
-    if (!canvasRef.current) {
-      return
-    }
-
-    const canvas = canvasRef.current
-    const context = canvas.getContext("2d")
-    if (context) {
-      context.strokeStyle = activeColor;
-      context.lineJoin = "round"
-      context.lineWidth = 5
-
-      context.beginPath()
-      context.moveTo(originalMousePosition.x, originalMousePosition.y)
-      context.lineTo(newMousePosition.x, newMousePosition.y)
-      context.closePath()
-
-      context.stroke()
-    }
-  }
+    [isPainting, mousePosition, drawLine, getCoordinates]
+  );
 
   const exitPaint = React.useCallback(() => {
     setIsPainting(false)
@@ -73,7 +76,7 @@ export default function usePaint(canvasRef, activeColor) {
     return () => {
       canvas.removeEventListener("mousedown", startPaint)
     }
-  }, [startPaint])
+  }, [startPaint, canvasRef])
 
   React.useEffect(() => {
     if (!canvasRef.current) {
@@ -86,7 +89,7 @@ export default function usePaint(canvasRef, activeColor) {
     return () => {
       canvas.removeEventListener("mousemove", paint)
     }
-  }, [paint])
+  }, [paint, canvasRef])
 
   React.useEffect(() => {
     if (!canvasRef.current) {
@@ -101,7 +104,7 @@ export default function usePaint(canvasRef, activeColor) {
       canvas.removeEventListener("mouseup", exitPaint)
       canvas.removeEventListener("mouseleave", exitPaint)
     }
-  }, [exitPaint])
+  }, [exitPaint, canvasRef])
 
   return [canvasRef]
 }
