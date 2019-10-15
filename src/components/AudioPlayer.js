@@ -44,7 +44,7 @@ export default function AudioPlayer() {
       {isPlaying && (
         <Button onClick={togglePartyTime}>
           <span>
-            Stop the Party <span role="img">☹️</span>
+            Stop the Party <span role="img" aria-label="Frown Face">☹️</span>
           </span>
         </Button>
       )}

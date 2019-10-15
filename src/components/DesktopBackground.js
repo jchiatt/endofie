@@ -94,7 +94,11 @@ export default function DesktopBackground({ children }) {
           <LogoContainer>
             <SpinningLogo />
             <Title>Welcome to the End of IE Party</Title>
-            <a href="https://mailchi.mp/77f84180ff5c/endofie" target="_blank">
+            <a
+              href="https://mailchi.mp/77f84180ff5c/endofie"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <CTAButton>Get email updates</CTAButton>
             </a>
           </LogoContainer>
@@ -104,8 +108,8 @@ export default function DesktopBackground({ children }) {
         <Footer>
           <VisitorCounter />
           <p>
-            Made with <span role="img">❤️</span> in Mississippi by{" "}
-            <a href="https://twitter.com/jchiatt" target="_blank">
+            Made with <span role="img" aria-label="love">❤️</span> in Mississippi by{" "}
+            <a href="https://twitter.com/jchiatt" target="_blank" rel="noopener noreferrer">
               J.C. Hiatt
             </a>{" "}
             & <a href="https://twitter.com/_kaylasween">Kayla Sween</a>.
