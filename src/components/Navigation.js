@@ -28,7 +28,7 @@ export function useNav() {
   return [isActive, toggleNav];
 }
 
-export default function Navigation() {
+export default function Navigation({ toggleNav }) {
   const { togglePartyTime, isPlaying } = React.useContext(PartyContext)
   
   return (
@@ -36,7 +36,10 @@ export default function Navigation() {
       <List>
         <List.Item
           icon="mic"
-          onClick={togglePartyTime}
+          onClick={() => {
+            togglePartyTime();
+            toggleNav();
+          }}
           style={{ cursor: "pointer" }}
         >
           {isPlaying ? "Stop the Party :-(" : "Party Now"}

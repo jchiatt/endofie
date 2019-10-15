@@ -10,7 +10,7 @@ export default function TaskBar() {
     const [navIsActive, toggleNav] = useNav();
     return (
       <>
-        {navIsActive && <Navigation />}
+        {navIsActive && <Navigation toggleNav={toggleNav} />}
         <div className="taskbar">
           <Button className="taskbar-btn" onClick={toggleNav}>
             <Icon height={16} name="logo" width={16} /> 
