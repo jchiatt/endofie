@@ -17,6 +17,7 @@ async function getTempo() {
 
 export default function useParty() {
   const [isPlaying, setIsPlaying] = React.useState(false)
+  /* eslint-disable-next-line no-unused-vars */
   const [_, setTempo] = React.useState(null)
   const [
     beatsPerSecondInMilliseconds,
@@ -58,7 +59,7 @@ export default function useParty() {
     }
 
     return () => clearInterval(interval)
-  }, [partyTime])
+  }, [partyTime, beatsPerSecondInMilliseconds])
 
   return {color, partyTime, isPlaying, togglePartyTime}
 }
