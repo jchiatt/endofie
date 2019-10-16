@@ -23,6 +23,7 @@
     "react": "^16.10.0",
     "react-dom": "^16.10.0",
     "styled-components": "^4.4.0",
+    "use-mobile-detect-hook": "^1.0.2",
     "web-audio-beat-detector": "^7.0.64"
   },
   "devDependencies": {

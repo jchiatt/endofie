@@ -3,6 +3,7 @@ import { List } from '@react95/core';
 import styled from 'styled-components'
 import { PartyContext } from "../contexts/PartyContext"
 import { ModalContext } from '../contexts/ModalContext';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const NavContainer = styled.nav`
   z-index: 2;
@@ -32,25 +33,29 @@ export function useNav() {
 export default function Navigation({ toggleNav }) {
   const { togglePartyTime, isPlaying } = React.useContext(PartyContext);
   const { showDetailsModal } = React.useContext(ModalContext);
+  const windowSize = useWindowSize();
+  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
   
   return (
     <NavContainer>
       <List>
-        <List.Item
-          icon="mic"
-          onClick={() => {
-            togglePartyTime();
-            toggleNav();
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          {isPlaying ? "Stop the Party :-(" : "Party Now"}
-        </List.Item>
+        {windowSize.width >= 768 && !isSafari && (
+          <List.Item
+            icon="mic"
+            onClick={() => {
+              togglePartyTime()
+              toggleNav()
+            }}
+            style={{ cursor: "pointer" }}
+          >
+            {isPlaying ? "Stop the Party :-(" : "Party Now"}
+          </List.Item>
+        )}
         <List.Item
           icon="info_bubble"
           onClick={() => {
-            showDetailsModal();
-            toggleNav();
+            showDetailsModal()
+            toggleNav()
           }}
           style={{ cursor: "pointer" }}
         >
