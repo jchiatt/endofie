@@ -10,7 +10,7 @@ export default () => {
 
   return (
     <>
-      <SEO />
+      <SEO title="Home" />
       <ScreenSaver />
       <StandardLayout>
         <DetailsModal />
