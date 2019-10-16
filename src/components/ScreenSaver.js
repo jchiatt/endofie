@@ -17,6 +17,36 @@ const Logo = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 9999;
+  -webkit-animation: x 6s linear infinite alternate;
+  animation: x 13s linear infinite alternate;
+  -webkit-animation: y 5s linear infinite alternate;
+  animation: y 7s linear infinite alternate;
+  @-webkit-keyframes x {
+    100% {
+      -webkit-transform: translateX(70vw);
+              transform: translateX(70vw);
+    }
+  }
+  
+  @keyframes x {
+    100% {
+      -webkit-transform: translateX(70vw);
+              transform: translateX(70vw);
+    }
+  }
+  @-webkit-keyframes y {
+    100% {
+      -webkit-transform: translateY(70vh);
+              transform: translateY(70vh);
+    }
+  }
+  @keyframes y {
+    100% {
+      -webkit-transform: translateY(70vh);
+              transform: translateY(70vh);
+    }
+  }
+
 `
 
 export default function ScreenSaver() {
@@ -82,18 +112,18 @@ export default function ScreenSaver() {
   return (
     <ScreenSaverContainer aria-hidden="true">
       {/* eslint-disable-next-line */}
-      <marquee
+      {/* <marquee
         direction="down"
         behavior="alternate"
         height="100%"
         width="100%"
         scrollamount="10"
-      >
+      > */}
         {/* eslint-disable-next-line */}
-        <marquee behavior="alternate" scrollamount="10">
+        {/* <marquee behavior="alternate" scrollamount="10"> */}
           <Logo />
-        </marquee>
-      </marquee>
+        {/* </marquee> */}
+      {/* </marquee> */}
     </ScreenSaverContainer>
   )
 }
