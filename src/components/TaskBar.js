@@ -12,7 +12,7 @@ export default function TaskBar() {
       <>
         {navIsActive && <Navigation toggleNav={toggleNav} />}
         <div className="taskbar">
-          <Button className="taskbar-btn" onClick={toggleNav}>
+          <Button className="taskbar-btn" onClick={toggleNav}  aria-expanded={navIsActive ? true : false}>
             <Icon height={16} name="logo" width={16} /> 
             <span>{navIsActive ? 'Close' : 'Start'}</span>
           </Button>

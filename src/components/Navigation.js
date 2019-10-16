@@ -38,7 +38,7 @@ export default function Navigation({ toggleNav }) {
   
   return (
     <NavContainer>
-      <List>
+      <List aria-expanded="false">
         {windowSize.width >= 768 && !isSafari && (
           <List.Item
             icon="mic"

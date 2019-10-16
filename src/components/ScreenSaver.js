@@ -11,8 +11,8 @@ const ScreenSaverContainer = styled.div`
 `;
 
 const Logo = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 30vw;
+  height: 30vw;
   background-image: url('/logo.png');
   background-size: cover;
   background-repeat: no-repeat;
