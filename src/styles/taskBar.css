@@ -19,8 +19,8 @@
   padding-bottom: 0.5rem;
 }
 
-.taskbar-btn,
-.taskbar-btn:active {
+.taskbar .taskbar-btn,
+.taskbar .taskbar-btn:active {
   padding: 0.5rem;
   margin-left: 0.5rem;
   min-width: 4.5rem;
