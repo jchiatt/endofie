@@ -2,6 +2,7 @@ import React from 'react';
 import { List } from '@react95/core';
 import styled from 'styled-components'
 import { PartyContext } from "../contexts/PartyContext"
+import { ModalContext } from '../contexts/ModalContext';
 
 const NavContainer = styled.nav`
   z-index: 2;
@@ -29,7 +30,8 @@ export function useNav() {
 }
 
 export default function Navigation({ toggleNav }) {
-  const { togglePartyTime, isPlaying } = React.useContext(PartyContext)
+  const { togglePartyTime, isPlaying } = React.useContext(PartyContext);
+  const { showDetailsModal } = React.useContext(ModalContext);
   
   return (
     <NavContainer>
@@ -44,7 +46,24 @@ export default function Navigation({ toggleNav }) {
         >
           {isPlaying ? "Stop the Party :-(" : "Party Now"}
         </List.Item>
+        <List.Item
+          icon="info_bubble"
+          onClick={() => {
+            showDetailsModal();
+            toggleNav();
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          Show Details
+        </List.Item>
         <List.Divider />
+        <StyledLink
+          href="https://mailchi.mp/77f84180ff5c/endofie"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <List.Item icon="mail">Get Updates</List.Item>
+        </StyledLink>
         <StyledLink
           href="https://github.com/jchiatt/endofie/"
           target="_blank"
