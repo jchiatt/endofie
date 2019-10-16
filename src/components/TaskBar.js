@@ -12,8 +12,8 @@ export default function TaskBar() {
       <>
         {navIsActive && <Navigation toggleNav={toggleNav} />}
         <div className="taskbar">
-          <Button className="taskbar-btn" onClick={toggleNav}  aria-expanded={navIsActive ? true : false}>
-            <img src={'./logo.png'} height={16} width={16} alt="" /> 
+          <Button className="taskbar-btn" onClick={toggleNav} aria-expanded={navIsActive ? true : false}>
+            <img src={'./logo.png'} height={16} width={16} alt="" id="startLogo" /> 
             <span>{navIsActive ? 'Close' : 'Start'}</span>
           </Button>
           <div className="countdown">
