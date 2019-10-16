@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon } from '@react95/core';
+import { Button } from '@react95/core';
 import countdown from '../util/countdown';
 import Navigation, { useNav } from './Navigation'
 
