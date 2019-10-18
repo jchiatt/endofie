@@ -35,32 +35,49 @@ export default function Navigation({ toggleNav }) {
   const { showDetailsModal } = React.useContext(ModalContext);
   const windowSize = useWindowSize();
   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-  
+
   return (
     <NavContainer>
       <List aria-expanded="false">
         {windowSize.width >= 768 && !isSafari && (
-          <List.Item
-            icon="mic"
+          <StyledLink href="Javascript:void(0)"
             onClick={() => {
               togglePartyTime()
               toggleNav()
             }}
+            onKeyPress={(event) => {
+              if(event.keyCode === "13") {
+                togglePartyTime()
+                toggleNav()
+              }
+            }}>
+            <List.Item
+              icon="mic"
+              style={{ cursor: "pointer" }}
+            >
+              {isPlaying ? "Stop the Party :-(" : "Party Now"}
+            </List.Item>
+          </StyledLink>
+        )}
+        <StyledLink href="Javascript:void(0)"
+            onClick={() => {
+              showDetailsModal()
+              toggleNav()
+            }}
+            onKeyPress={(event) => {
+              if(event.keyCode === "13") {
+                showDetailsModal()
+                toggleNav()
+              }
+            }}>
+          <List.Item
+            icon="info_bubble"
             style={{ cursor: "pointer" }}
           >
-            {isPlaying ? "Stop the Party :-(" : "Party Now"}
+            Show Details
           </List.Item>
-        )}
-        <List.Item
-          icon="info_bubble"
-          onClick={() => {
-            showDetailsModal()
-            toggleNav()
-          }}
-          style={{ cursor: "pointer" }}
-        >
-          Show Details
-        </List.Item>
+        </StyledLink>
+
         <List.Divider />
         <StyledLink
           href="https://mailchi.mp/77f84180ff5c/endofie"
