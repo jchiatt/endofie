@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import { useClippy } from 'use-clippy-now';
 import { PartyContext } from '../contexts/PartyContext';
 import useParty from '../hooks/useParty';
 import VisitorCounter from './VisitorCounter';
@@ -76,8 +77,9 @@ const Footer = styled.footer`
 `
 
 export default function DesktopBackground({ children }) {
-  const {color, isPlaying, partyTime, togglePartyTime} = useParty();
+  const { color, isPlaying, partyTime, togglePartyTime } = useParty();
   const [detailsModalActive, setDetailsModalActive] = React.useState(false);
+  const withClippy = useClippy("Clippy");
 
   return (
     <PartyContext.Provider
@@ -98,7 +100,7 @@ export default function DesktopBackground({ children }) {
         <Background color={color}>
           <Inner>
             <LogoContainer>
-              <SpinningLogo />
+              <SpinningLogo partyTime={partyTime} />
               <Title>Welcome to the End of IE Party</Title>
             </LogoContainer>
           </Inner>
